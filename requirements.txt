@@ -7,4 +7,5 @@ scikit-learn
 pdfminer.six
 reportlab
 openpyxl
+streamlit-autorefresh
 google-generativeai
