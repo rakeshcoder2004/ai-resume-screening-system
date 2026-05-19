@@ -1,0 +1,32 @@
+Company,Role,Location,Link
+TCS,Data Science,Chennai,https://www.tcs.com/careers
+TCS,Software Engineer,Chennai,https://www.tcs.com/careers
+Infosys,Data Scientist,Bangalore,https://www.infosys.com/careers
+Infosys,Software Developer,Bangalore,https://www.infosys.com/careers
+Wipro,Machine Learning Engineer,Hyderabad,https://careers.wipro.com
+Wipro,Backend Developer,Hyderabad,https://careers.wipro.com
+Accenture,Data Analyst,Mumbai,https://www.accenture.com/careers
+Accenture,Software Engineer,Pune,https://www.accenture.com/careers
+Zoho,Data Science Intern,Chennai,https://www.zoho.com/careers
+Zoho,Software Developer,Chennai,https://www.zoho.com/careers
+Amazon,Data Engineer,Hyderabad,https://www.amazon.jobs
+Amazon,Backend Developer,Bangalore,https://www.amazon.jobs
+Google,Data Scientist,Bangalore,https://careers.google.com
+Google,Software Engineer,Bangalore,https://careers.google.com
+Microsoft,Data Analyst,Hyderabad,https://careers.microsoft.com
+Microsoft,Software Engineer,Hyderabad,https://careers.microsoft.com
+IBM,Data Scientist,Bangalore,https://www.ibm.com/careers
+IBM,Cloud Engineer,Bangalore,https://www.ibm.com/careers
+Capgemini,Python Developer,Pune,https://www.capgemini.com/careers
+Capgemini,Data Analyst,Pune,https://www.capgemini.com/careers
+HCL,Software Developer,Noida,https://www.hcltech.com/careers
+HCL,Data Engineer,Noida,https://www.hcltech.com/careers
+Cognizant,Data Scientist,Chennai,https://careers.cognizant.com
+Cognizant,Software Engineer,Chennai,https://careers.cognizant.com
+Deloitte,Data Analyst,Bangalore,https://www2.deloitte.com/careers
+Deloitte,ML Engineer,Bangalore,https://www2.deloitte.com/careers
+Flipkart,Data Engineer,Bangalore,https://www.flipkartcareers.com
+Flipkart,Backend Developer,Bangalore,https://www.flipkartcareers.com
+Paytm,Data Analyst,Noida,https://jobs.paytm.com
+Paytm,Software Engineer,Noida,https://jobs.paytm.com
+st.write("Total jobs:", len(jobs_df))
