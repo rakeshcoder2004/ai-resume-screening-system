@@ -5,6 +5,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import sqlite3
+import base64
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
@@ -13,18 +17,229 @@ from docx import Document
 from datetime import datetime
 from streamlit_autorefresh import st_autorefresh
 
-# NEW 🔥
-import google.generativeai as genai
 
 # REPORT IMPORTS
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
 from reportlab.lib.styles import getSampleStyleSheet
+# ------------------------
+# CUSTOM UI
+# ------------------------
+
+def get_base64(file):
+
+    with open(file, "rb") as f:
+        data = f.read()
+
+    return base64.b64encode(data).decode()
+
+
+def set_background():
+
+    bg_image = get_base64("assets/bg.jpg")
+
+    page_bg = f"""
+    <style>
+
+    .stApp {{
+        background-image: url("data:image/jpg;base64,{bg_image}");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }}
+    [data-testid="stSidebar"] {{
+    background: linear-gradient(
+        to bottom,
+        rgba(0,20,40,0.95),
+        rgba(0,80,120,0.85)
+    );
+}}
+}}
+
+.block-container {{
+    background: rgba(0,0,0,0.15);
+    padding: 2rem;s
+    border-radius: 20px;
+    backdrop-filter: blur(3px);
+    text-shadow: 2px 2px 8px black;
+}}
+
+    h1, h2, h3, h4, h5, h6 {{
+    color: white !important;
+    font-weight: bold !important;
+}}
+
+    p, label, span {{
+    color: white !important;
+}}
+
+div[data-baseweb="select"] * {{
+    color: black !important;
+}}
+
+input {{
+    color: black !important;
+}}
+
+.stTextInput input {{
+    color: black !important;
+}}
+
+.stTextInput input::placeholder {{
+    color: gray !important;
+    opacity: 1 !important;
+}}
+.stSelectbox div[data-baseweb="select"] > div {{
+    background-color: white !important;
+    color: black !important;
+}}
+
+.stSelectbox div[data-baseweb="select"] span {{
+    color: black !important;
+}}
+
+.stSelectbox svg {{
+    color: black !important;
+}}
+code {{
+    color: black !important;
+}}
+
+pre {{.stCode {{
+    color: black !important;
+    background-color: rgba(255,255,255,0.95) !important;
+}}
+
+.stCode * {{
+    color: black !important;
+}}
+
+code {{
+    color: black !important;
+}}
+
+pre {{
+    color: black !important;
+    background-color: rgba(255,255,255,0.95) !important;
+}}
+
+pre * {{
+    color: black !important;
+}}
+
+code {{
+    color: black !important;
+}}
+
+.stCode {{
+    color: black !important;
+    background-color: rgba(255,255,255,0.95) !important;
+}}
+
+.stCode * {{
+    color: black !important;
+}}
+
+    color: black !important;
+    background-color: rgba(255,255,255,0.9) !important;
+    border-radius: 10px;
+}}
+
+
+    .stButton>button {{
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        color: white;
+        border-radius: 10px;
+        height: 45px;
+        border: none;
+        font-size: 16px;
+    }}
+    .stButton>button {{
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: white;
+    border-radius: 10px;
+    height: 45px;
+    border: none;
+    font-size: 16px;
+}}
+
+.stDownloadButton>button {{
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: white !important;
+    border-radius: 10px;
+    height: 45px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+}}
+
+[data-testid="stFileUploader"] button {{
+    background: linear-gradient(to right, #00c6ff, #0072ff) !important;
+    color: white !important;
+    border-radius: 10px !important;
+    border: none !important;
+    font-weight: bold !important;
+}}
+
+[data-testid="stFileUploaderDropzone"] {{
+    background: rgba(255,255,255,0.08) !important;
+    border: 2px dashed #00c6ff !important;
+    border-radius: 15px !important;
+}}
+
+[data-testid="stFileUploaderDropzone"] * {{
+    color: white !important;
+}}
+
+section[data-testid="stFileUploader"] {{
+    color: white !important;
+}}
+
+header {{
+    visibility: hidden;
+}}
+
+footer {{
+    visibility: hidden;
+}}
+
+    </style>
+    """
+
+    st.markdown(page_bg, unsafe_allow_html=True)
 
 # ------------------------
 # TITLE
 # ------------------------
+# ------------------------
+# PAGE CONFIG
+# ------------------------
 
-st.title("AI Resume Screening System")
+st.set_page_config(
+    page_title="AI Resume Screening System",
+    layout="wide"
+)
+
+set_background()
+st.markdown("""
+<style>
+.main-title {
+    font-size: 55px;
+    font-weight: bold;
+    color: #ffffff !important;
+    text-align: center;
+    text-shadow: 
+        0 0 10px #00d9ff,
+        0 0 20px #00d9ff,
+        0 0 40px #00d9ff;
+    margin-bottom: 20px;
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown(
+    '<h1 class="main-title">AI Resume Screening System</h1>',
+    unsafe_allow_html=True
+)
 
 # ------------------------
 # LOGIN SYSTEM 🔥
@@ -36,7 +251,7 @@ if "logged_in" not in st.session_state:
 if "role" not in st.session_state:
     st.session_state.role = ""
 
-st.sidebar.title("Login System")
+#st.sidebar.title("Login System")
 
 role = st.sidebar.selectbox(
     "Login As",
@@ -160,11 +375,6 @@ y = df["Category"]
 model = LogisticRegression(max_iter=200)
 model.fit(X, y)
 
-# ------------------------
-# GEMINI CONFIG 🔥
-# ------------------------
-
-genai.configure(api_key="YOUR_API_KEY")
 
 # ------------------------
 # ATS FUNCTION 🔥
@@ -493,7 +703,7 @@ if st.session_state.role == "Candidate":
                     detected_skills.append(skill)
 
         st.subheader("Skills Found in Resume")
-        st.write(detected_skills)
+        st.success(", ".join(detected_skills))
 
         st.subheader("Total Skills Found")
         st.write(len(detected_skills))
@@ -624,12 +834,69 @@ if st.session_state.role == "Candidate":
                 uploaded_file.name,
                 current_date
             ))
-
+            
             conn.commit()
+            # ------------------------
+            # EMAIL NOTIFICATION
+            # ------------------------
 
+            sender_email = "rakeshviot10@gmail.com"
+
+            sender_password = "sker uolj svsh ktoj"
+
+            receiver_email = "rakeshv8248@gmail.com"
+
+            subject = "TEST MAIL FROM ATS PROJECT"
+
+            body = f"""
+New Candidate Resume Uploaded
+
+Username: {username}
+
+Predicted Role: {prediction}
+
+ATS Score: {score}/100
+"""
+
+            msg = MIMEMultipart()
+
+            msg["From"] = sender_email
+            msg["To"] = receiver_email
+            msg["Subject"] = subject
+
+            msg.attach(MIMEText(body, "plain"))
+
+            try:
+
+                server = smtplib.SMTP(
+                    "smtp.gmail.com",
+                    587
+                )
+
+                server.starttls()
+
+                server.login(
+                    sender_email,
+                    sender_password
+                )
+                st.write("Login Success")
+
+                server.sendmail(
+                    sender_email,
+                    receiver_email,
+                    msg.as_string()
+                )
+                st.write("Mail Sending Success")
+
+                server.quit()
+
+                st.success("Mail Sent Successfully 🚀")
+
+            except Exception as e:
+                st.error(f"Email Error: {e}")
         else:
-
             st.warning("Resume already uploaded ⚠️")
+            st.write("Duplicate Email Found")
 
         # ------------------------
         # MISSING SKILLS
@@ -649,7 +916,7 @@ if st.session_state.role == "Candidate":
         ]
 
         st.subheader("Recommended Skills to Improve")
-        st.write(missing)
+        st.success(", ".join(missing))
         # ------------------------
         # ADVICE
         # ------------------------
@@ -675,7 +942,11 @@ if st.session_state.role == "Candidate":
         ats_resume = generate_ats_resume(resume_text, prediction)
 
         st.markdown("### 📄 ATS Resume")
-        st.code(ats_resume)
+        st.text_area(
+            "ATS Resume",
+            ats_resume,
+            height=500
+        )
 
         # ------------------------
         # MATCHING JOBS
@@ -723,7 +994,6 @@ if st.session_state.role == "Candidate":
             file_name="resume_report.pdf",
             mime="application/pdf"
         )
-
 
 # ------------------------
 # STORED DATA (HR ONLY)
