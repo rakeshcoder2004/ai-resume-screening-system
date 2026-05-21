@@ -2,7 +2,7 @@
 
 An intelligent Resume Screening and ATS (Applicant Tracking System) web application developed using Machine Learning and Streamlit.
 
-The system automatically analyzes resumes, predicts the most suitable job role, calculates ATS scores, extracts technical skills, and stores candidate information for HR management.
+The system automatically analyzes resumes, predicts the most suitable job role, calculates ATS scores, extracts technical skills, sends HR email notifications, and stores candidate information for HR management.
 
 ---
 
@@ -17,6 +17,7 @@ This system helps HR professionals:
 - Analyze candidate skills automatically
 - Improve recruitment efficiency
 - Maintain candidate records digitally
+- Receive instant candidate email notifications
 
 ---
 
@@ -29,6 +30,7 @@ To build a smart AI-powered Resume Screening System capable of:
 - Extracting technical skills
 - Managing candidate data efficiently
 - Assisting HR teams in recruitment
+- Sending automated HR email alerts
 
 ---
 
@@ -60,6 +62,7 @@ The project uses the Logistic Regression classification algorithm to predict sui
 | PDFMiner | PDF Text Extraction |
 | Python-Docx | DOCX Resume Parsing |
 | Matplotlib | Data Visualization |
+| SMTP | Email Notification Service |
 
 ---
 
@@ -74,6 +77,7 @@ The project uses the Logistic Regression classification algorithm to predict sui
 - Recommended Skills Suggestion
 - Job Recommendation System
 - Resume Report Generation
+- ATS Optimized Resume Generation
 
 ---
 
@@ -86,6 +90,23 @@ The project uses the Logistic Regression classification algorithm to predict sui
 - ATS Analytics Dashboard
 - Upload Tracking
 - Resume Storage System
+- Automatic Email Notification System
+- HR Email Alerts on Resume Upload
+
+---
+
+# 📧 Email Notification System
+
+The system automatically sends email notifications to HR whenever a new candidate uploads a resume.
+
+### Email Includes:
+
+- Candidate Username
+- Predicted Job Role
+- ATS Score
+- Upload Notification
+
+This feature improves real-time recruitment tracking and enhances HR workflow automation.
 
 ---
 
@@ -139,6 +160,7 @@ The system generates:
 - Career Advice
 - Matching Job Recommendations
 - HR Analytics Dashboard
+- Automatic Email Alerts
 
 ---
 
@@ -161,27 +183,31 @@ https://github.com/rakeshcoder2004/ai-resume-screening-system
 # 📷 Project Screenshots
 
 ## Candidate Dashboard
+
 - Resume Upload
 - ATS Score
 - Job Prediction
 - Skills Analysis
+- Email Notification
 
 ## HR Dashboard
+
 - Candidate Database
 - Search Candidate
 - ATS Analytics
 - Resume Management
+- Candidate Tracking
 
 ---
 
 # 🔮 Future Enhancements
 
-- Email Notification System
 - Resume Ranking System
 - AI Interview Questions Generator
 - Multi-HR Authentication
 - Cloud Database Integration
 - Resume Shortlisting Automation
+- AI Chatbot Integration
 
 ---
 
@@ -195,6 +221,7 @@ Through this project, the following concepts were implemented and learned:
 - Database Management
 - PDF & DOCX Parsing
 - HR Automation Workflow
+- SMTP Email Integration
 
 ---
 
@@ -210,3 +237,5 @@ Specialization: Internet of Things (IoT)
 # ⭐ Conclusion
 
 The AI Resume Screening System successfully automates the resume evaluation process using Machine Learning techniques and provides an efficient recruitment support system for HR professionals.
+
+The project combines AI-powered resume analysis, ATS scoring, HR analytics, and automated email notification systems to create a complete intelligent recruitment solution.
