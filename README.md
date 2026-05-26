@@ -1,133 +1,171 @@
 # 🤖 AI Resume Screening System
 
-An intelligent Resume Screening and ATS (Applicant Tracking System) web application developed using Machine Learning and Streamlit.
+An intelligent AI-powered Resume Screening and ATS (Applicant Tracking System) web application developed using Machine Learning, Streamlit, and Python.
 
-The system automatically analyzes resumes, predicts the most suitable job role, calculates ATS scores, extracts technical skills, sends HR email notifications, and stores candidate information for HR management.
+The system automatically analyzes resumes, predicts suitable job roles, calculates ATS scores, extracts technical skills, performs job description matching, generates AI-based recommendations, and automates HR recruitment workflows.
 
 ---
 
-# 📌 Project Objective
+# 🚀 Project Overview
 
-The primary objective of this project is to automate the traditional resume screening process using Artificial Intelligence and Machine Learning techniques.
+Traditional resume screening is time-consuming and inefficient for HR teams.
 
-This system helps HR professionals:
+This project automates the recruitment screening process using Artificial Intelligence and Machine Learning techniques.
 
-- Reduce manual resume filtering
-- Identify suitable candidates faster
-- Analyze candidate skills automatically
-- Improve recruitment efficiency
-- Maintain candidate records digitally
-- Receive instant candidate email notifications
+The system helps HR professionals:
+
+* Reduce manual resume filtering
+* Identify suitable candidates quickly
+* Analyze candidate skills automatically
+* Improve recruitment efficiency
+* Maintain digital candidate records
+* Automate resume shortlisting
+* Receive instant HR email notifications
 
 ---
 
 # 🎯 Aim of the Project
 
-To build a smart AI-powered Resume Screening System capable of:
+To build an AI-powered ATS Resume Screening Platform capable of:
 
-- Predicting job roles from resumes
-- Calculating ATS resume scores
-- Extracting technical skills
-- Managing candidate data efficiently
-- Assisting HR teams in recruitment
-- Sending automated HR email alerts
+* Predicting job roles from resumes
+* Calculating ATS resume scores
+* Extracting technical skills
+* Matching resumes with Job Descriptions
+* Providing AI-based career suggestions
+* Managing candidate records efficiently
+* Assisting HR teams in recruitment automation
 
 ---
 
-# 🧠 Machine Learning Algorithm Used
+# 🧠 Machine Learning Model Used
 
 ## Logistic Regression
 
-The project uses the Logistic Regression classification algorithm to predict suitable job roles from resume text data.
+The project uses the Logistic Regression classification algorithm for resume classification and job role prediction.
 
 ### Why Logistic Regression?
 
-- Fast and efficient
-- Works well for text classification
-- High accuracy for resume categorization
-- Lightweight and scalable
+* Fast and efficient
+* High accuracy for text classification
+* Lightweight and scalable
+* Suitable for resume categorization
 
 ---
 
 # ⚙️ Technologies Used
 
-| Technology | Purpose |
-|---|---|
-| Python | Core Programming |
-| Streamlit | Web Application UI |
-| Scikit-learn | Machine Learning |
-| Pandas | Data Processing |
-| NumPy | Numerical Operations |
-| SQLite | Database Storage |
-| PDFMiner | PDF Text Extraction |
-| Python-Docx | DOCX Resume Parsing |
-| Matplotlib | Data Visualization |
-| SMTP | Email Notification Service |
+| Technology   | Purpose                   |
+| ------------ | ------------------------- |
+| Python       | Core Programming          |
+| Streamlit    | Web Application UI        |
+| Scikit-learn | Machine Learning          |
+| Pandas       | Data Processing           |
+| NumPy        | Numerical Operations      |
+| SQLite       | Database Storage          |
+| PDFMiner     | PDF Text Extraction       |
+| Python-Docx  | DOCX Resume Parsing       |
+| Matplotlib   | Data Visualization        |
+| ReportLab    | PDF Report Generation     |
+| SMTP         | Email Notification System |
 
 ---
 
-# 🚀 Key Features
+# ✨ Key Features
 
 ## 👤 Candidate Module
 
-- Resume Upload (PDF & DOCX)
-- AI-based Job Prediction
-- ATS Score Calculation
-- Skills Extraction
-- Recommended Skills Suggestion
-- Job Recommendation System
-- Resume Report Generation
-- ATS Optimized Resume Generation
+* Resume Upload (PDF, DOCX, TXT)
+* AI-based Job Role Prediction
+* ATS Resume Score Calculation
+* Skills Extraction
+* Missing Skills Analysis
+* Job Description Matching
+* AI Resume Suggestions
+* Career Advice System
+* Job Recommendation System
+* ATS Optimized Resume Generation
+* Resume Report Download
 
 ---
 
 ## 🏢 HR Module
 
-- Secure HR Login
-- Candidate Database Management
-- Resume Search Feature
-- Candidate Deletion Option
-- ATS Analytics Dashboard
-- Upload Tracking
-- Resume Storage System
-- Automatic Email Notification System
-- HR Email Alerts on Resume Upload
+* Secure HR Login System
+* Role-Based Access Control
+* Candidate Database Management
+* ATS Analytics Dashboard
+* Candidate Tracking System
+* Resume Upload Monitoring
+* Search Candidate Feature
+* Resume Management
+* Automatic Email Notification System
+
+---
+
+# ⚙️ Advanced Features
+
+* 🌙 Dark Mode System
+* 📊 Dynamic ATS Score Colors
+* 📧 Email Notification Toggle
+* 🤖 Auto Resume Screening
+* 🎯 ATS Shortlist Threshold
+* 🔒 HR Protected Pages
+* 📈 Analytics Dashboard
+* 📄 PDF Report Generation
+* 💡 AI Resume Insights
 
 ---
 
 # 📧 Email Notification System
 
-The system automatically sends email notifications to HR whenever a new candidate uploads a resume.
+The application automatically sends HR email alerts whenever a new candidate uploads a resume.
 
 ### Email Includes:
 
-- Candidate Username
-- Predicted Job Role
-- ATS Score
-- Upload Notification
+* Candidate Name
+* Predicted Job Role
+* ATS Score
+* Upload Notification
 
-This feature improves real-time recruitment tracking and enhances HR workflow automation.
+This improves HR workflow automation and recruitment tracking.
 
 ---
 
 # 📊 ATS Score Calculation
 
-The ATS score is calculated based on:
+ATS score is calculated based on:
 
-- Email Presence
-- Phone Number Presence
-- Technical Skills
-- Projects Mentioned
-- Experience
-- Education Details
-- Certifications
+* Email Presence
+* Phone Number
+* Technical Skills
+* Projects Mentioned
+* Experience
+* Education
+* Certifications
+* Resume Content Quality
+
+---
+
+# 🎨 ATS Score Visualization
+
+Dynamic ATS score colors were implemented:
+
+| Score Range | Color  |
+| ----------- | ------ |
+| 80+         | Green  |
+| 60–79       | Yellow |
+| Below 60    | Red    |
+
+This improves ATS visualization and candidate evaluation.
 
 ---
 
 # 📂 Supported Resume Formats
 
-✅ PDF Files  
+✅ PDF Files
 ✅ DOCX Files
+✅ TXT Files
 
 ---
 
@@ -137,30 +175,31 @@ SQLite database is used to permanently store candidate information.
 
 Stored Data:
 
-- Candidate Name
-- Email ID
-- Phone Number
-- Predicted Role
-- ATS Score
-- Skills
-- Resume File Name
-- Upload Date
+* Candidate Name
+* Email ID
+* Phone Number
+* Predicted Role
+* ATS Score
+* Skills
+* Resume File Name
+* Upload Date
 
 ---
 
-# 📈 Output of the System
+# 📈 System Output
 
 The system generates:
 
-- Predicted Job Role
-- ATS Resume Score
-- Extracted Skills
-- Strong Technical Area
-- Missing Skill Suggestions
-- Career Advice
-- Matching Job Recommendations
-- HR Analytics Dashboard
-- Automatic Email Alerts
+* Predicted Job Role
+* ATS Resume Score
+* Extracted Skills
+* Strong Technical Area
+* Missing Skill Suggestions
+* Career Advice
+* Job Recommendations
+* HR Analytics Dashboard
+* AI Insights
+* Automatic Email Alerts
 
 ---
 
@@ -180,48 +219,30 @@ https://github.com/rakeshcoder2004/ai-resume-screening-system
 
 ---
 
-# 📷 Project Screenshots
-
-## Candidate Dashboard
-
-- Resume Upload
-- ATS Score
-- Job Prediction
-- Skills Analysis
-- Email Notification
-
-## HR Dashboard
-
-- Candidate Database
-- Search Candidate
-- ATS Analytics
-- Resume Management
-- Candidate Tracking
-
----
-
 # 🔮 Future Enhancements
 
-- Resume Ranking System
-- AI Interview Questions Generator
-- Multi-HR Authentication
-- Cloud Database Integration
-- Resume Shortlisting Automation
-- AI Chatbot Integration
+* Resume Ranking System
+* AI Interview Question Generator
+* Multi-HR Authentication
+* Cloud Database Integration
+* Resume Shortlisting Automation
+* AI Chatbot Integration
 
 ---
 
 # 📚 Learning Outcomes
 
-Through this project, the following concepts were implemented and learned:
+This project helped in understanding:
 
-- Machine Learning Model Training
-- Resume Text Processing
-- Streamlit Web Development
-- Database Management
-- PDF & DOCX Parsing
-- HR Automation Workflow
-- SMTP Email Integration
+* Machine Learning Model Training
+* Resume Text Processing
+* Streamlit Web Development
+* Database Management
+* PDF & DOCX Parsing
+* HR Automation Workflow
+* SMTP Email Integration
+* Role-Based Authentication
+* ATS Resume Analysis
 
 ---
 
@@ -229,13 +250,23 @@ Through this project, the following concepts were implemented and learned:
 
 ## Rakesh V
 
-BE Computer Science Engineering  
+BE Computer Science Engineering
 Specialization: Internet of Things (IoT)
 
 ---
 
 # ⭐ Conclusion
 
-The AI Resume Screening System successfully automates the resume evaluation process using Machine Learning techniques and provides an efficient recruitment support system for HR professionals.
+The AI Resume Screening System successfully automates the traditional recruitment screening process using Machine Learning and AI-based ATS analysis.
 
-The project combines AI-powered resume analysis, ATS scoring, HR analytics, and automated email notification systems to create a complete intelligent recruitment solution.
+The project combines:
+
+* Resume Parsing
+* ATS Scoring
+* AI Role Prediction
+* HR Automation
+* Analytics Dashboard
+* Email Notifications
+* Job Matching
+
+to create a complete intelligent recruitment support platform.
